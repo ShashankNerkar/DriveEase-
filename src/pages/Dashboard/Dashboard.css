@@ -1,0 +1,362 @@
+/* =====================================================
+   Dashboard.css
+   Uses CSS custom properties defined in Navbar.css (:root)
+   ===================================================== */
+
+/* ── Page wrapper ── */
+.dashboard {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* =====================================================
+   PROFILE SECTION
+   ===================================================== */
+.dashboard__profile {
+  background-color: var(--color-bg-nav); /* dark navy — matches navbar */
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  color: var(--color-text-light);
+}
+
+/* Circular avatar */
+.profile__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3); /* soft glow ring */
+}
+
+/* Name & greeting */
+.profile__greeting {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.profile__name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.profile__license-badge {
+  display: inline-block;
+  background-color: rgba(37, 99, 235, 0.25);
+  color: #93c5fd; /* light blue */
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Progress card — right column */
+.profile__progress-card {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+  padding: 1rem 1.25rem;
+  min-width: 220px;
+}
+
+.progress-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+
+.progress-card__label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.progress-card__count {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+
+.progress-card__total {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* The track (grey bar) */
+.progress-bar__track {
+  width: 100%;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* The fill (animated on load via CSS) */
+.progress-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+.progress-card__caption {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+/* =====================================================
+   SHARED SECTION STYLES
+   ===================================================== */
+.dashboard__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+/* Small pill counter next to section title */
+.section__badge {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+
+.dashboard__empty {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  padding: 1rem;
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius-md);
+  border: 1px dashed var(--color-border);
+}
+
+/* =====================================================
+   LESSON ALERT CARDS
+   ===================================================== */
+.lesson-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lesson-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.lesson-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Left color accent strip */
+.lesson-card__accent {
+  width: 5px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+}
+
+/* Main body */
+.lesson-card__body {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.lesson-card__topic {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.lesson-card__instructor {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.lesson-card__meta {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.lesson-card__date,
+.lesson-card__time {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* "Upcoming" pill on the right */
+.lesson-card__chip {
+  align-self: center;
+  margin-right: 1.25rem;
+  background-color: #eff6ff;
+  color: var(--color-primary);
+  border: 1px solid #bfdbfe;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   BADGES GRID
+   ===================================================== */
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 1rem;
+}
+
+.badge-tile {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+/* ── Earned state ── */
+.badge-tile--earned {
+  border-color: #fde68a; /* amber border */
+  background-color: #fffbeb;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+}
+
+.badge-tile--earned:hover {
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+  transform: translateY(-3px);
+}
+
+/* ── Locked state ── */
+.badge-tile--locked {
+  opacity: 0.45;
+  filter: grayscale(80%);
+  border-color: var(--color-border);
+}
+
+/* Icon circle */
+.badge-tile__icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.badge-tile__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.badge-tile__desc {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* Small "Earned" label shown only on earned badges */
+.badge-tile__earned-label {
+  margin-top: 0.35rem;
+  background-color: #d1fae5;
+  color: #065f46;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 768px) {
+  /* Stack profile section vertically on mobile */
+  .dashboard__profile {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .profile__progress-card {
+    grid-column: 1 / -1; /* full width */
+    min-width: unset;
+  }
+
+  .badge-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .profile__name {
+    font-size: 1.3rem;
+  }
+
+  .lesson-card__meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .badge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
