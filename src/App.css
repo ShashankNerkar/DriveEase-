@@ -1,8 +1,0 @@
-/* =====================================================
-   App.css — Global layout wrapper
-   ===================================================== */
-
-.app__main {
-  min-height: calc(100vh - var(--navbar-height));
-  background-color: var(--color-bg-page);
-}
